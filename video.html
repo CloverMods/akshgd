@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Player de Vídeo</title>
+  <script>
+    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+      console.log("O código está sendo executado localmente. O redirecionamento foi ignorado.");
+    } else {
+      window.location.replace("https://anikit.onrender.com/");
+    }
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* Proporção de aspecto 16:9 */
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .fullscreen-button {
+      position: absolute;
+      z-index: 1;
+      top: 40px;
+      right: 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 20px;
+      cursor: pointer;
+    }
+    
+  
+    @media (max-width: 768px) {
+      .fullscreen-button {
+        font-size: 12px;
+        padding: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="video-container">
+    <iframe id="video" src="https://www.blogger.com/video.g?token=AD6v5dzOEU5wMIcmur_4anrMXI_HN4sIt_Xy7vaLAD1wcoW996sDIZYS4fLDVSRh0mvDww4pmfmWk4LsYkL6zHR5ji_LHQKHd8HgPm7BXd7LpbRRt1BUMhPYIyXzqDeFgsJ_Q-30r68"></iframe>
+    <div class="butt">
+          <button class="fullscreen-button" onclick="toggleFullscreen()">Tela Cheia</button>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleFullscreen() {
+      var video = document.getElementById("video");
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.mozRequestFullScreen) {
+        video.mozRequestFullScreen();
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) {
+        video.msRequestFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>
